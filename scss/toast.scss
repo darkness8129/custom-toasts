@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+// MIXIN
+@mixin toast__header($bg-color) {
+    background-color: $bg-color;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+// TOAST
+.toast {
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+}
+
+// TOAST HEDER
+.toast__header_success {
+    @include toast__header(green);
+}
+.toast__header_warning {
+    @include toast__header(orange);
+}
+.toast__header_error {
+    @include toast__header(red);
+}
+.toast__header_info {
+    @include toast__header(blue);
+}
+
+// TOAST TITLE
+
+.toast__title-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.toast__title {
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+// CLOSE BTN
+.toast__close-btn {
+    color: white;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+//TOAST BODY
+.toast__body {
+    padding: 10px;
+}
+
+.toast__text {
+    margin: 0;
+    padding: 0;
+}
