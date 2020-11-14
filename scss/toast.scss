@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-
+@import url('https://use.fontawesome.com/releases/v5.13.0/css/all.css');
 // MIXIN
 @mixin toast__header($bg-color) {
     background-color: $bg-color;
@@ -16,6 +16,7 @@
     font-family: 'Open Sans', sans-serif;
     width: 100%;
     max-width: 300px;
+    margin: 5px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
 }
@@ -35,7 +36,6 @@
 }
 
 // TOAST TITLE
-
 .toast__title-wrapper {
     display: flex;
     align-items: center;
