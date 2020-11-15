@@ -5,9 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/toast.css">
+    <link rel="stylesheet" href="./css/playground.css">
     <script src="./js/toast.js" defer></script>
+    <script src="./js/playground.js" defer></script>
 </head>
 
-<body></body>
+<body>
+    <article class="playground">
+        <form id = 'playground-form'>
+            <p>
+                <label for="content">Content</label>
+                <input type="text" id = 'content' name ='content' required>
+            </p>
+            <p>
+                <label for="autoHideDuration">Auto hide duration</label>
+                <input type="number" name = 'autoHideDuration' id='autoHideDuration' min= "0" step = "1000" required>
+            </p> 
+            <div>
+                <p style="display: inline-block;">
+                    <label for="variant">Variant</label>
+                    <select id="variant" name = 'variant'>
+                        <option value="info" selected>Info</option>
+                        <option value="warning">Warning</option>
+                        <option value="error">Error</option>
+                        <option value="success">Success</option>
+                    </select>
+                </p>
+                <p style="display: inline-block;"> 
+                    <label for="position" name ='position'>Position</label>
+                    <select id="position" name = 'position'>
+                        <option value="bottom-right" selected>Bottom-right</option>
+                        <option value="bottom-left">Bottom-left</option>
+                        <option value="top-right">Top-right</option>
+                        <option value="top-left">Top-left</option>
+                    </select>
+                </p>
+                <fieldset class="closeOnClick-fieldset">
+                    <legend>Close on click</legend>
+                    <p>
+                        <input type="radio" value = 'true' name = 'closeOnClick' id = 'true' checked>
+                        <label for="true">True</label>
+                    </p>
+                    <p>
+                        <input type="radio" value = 'false' name = 'closeOnClick' id ='false'>
+                        <label for="false">False</label>
+                    </p>
+                </fieldset>
+            </div>
+            <p>
+                <button type="submit" id = 'playground-btn' class="playground-btn">Show toast</button>
+            </p>
+        </form>
+    </article>
 
+</body>
 </html>

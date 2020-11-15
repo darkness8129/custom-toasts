@@ -4,13 +4,11 @@
 // MIXINS
 @mixin toast__header($bg-color) {
     background-color: $bg-color;
-    color: white;
+    color: #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding: 10px;
-    border-radius: 5px 5px 0 0;
 }
 
 @mixin toasts-container($top: null, $right: null, $bottom: null, $left: null) {
@@ -23,6 +21,7 @@
     max-width: 300px;
     overflow: hidden;
     padding: 0 10px;
+    z-index: 1000;
 }
 
 // TOASTS CONTAINER
@@ -42,25 +41,26 @@
 // TOAST
 .toast {
     font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: #000000;
     width: 100%;
     margin: 5px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
-    border-radius: 0 0 5px 5px;
 }
 
 // TOAST HEDER
 .toast__header_success {
-    @include toast__header(green);
+    @include toast__header(#36bd2a);
 }
 .toast__header_warning {
-    @include toast__header(orange);
+    @include toast__header(#edae26);
 }
 .toast__header_error {
-    @include toast__header(red);
+    @include toast__header(#f23b2e);
 }
 .toast__header_info {
-    @include toast__header(blue);
+    @include toast__header(#498bf5);
 }
 
 // TOAST TITLE
@@ -76,7 +76,7 @@
 
 // CLOSE BTN
 .toast__close-btn {
-    color: white;
+    color: #ffffff;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -84,6 +84,7 @@
 
 //TOAST BODY
 .toast__body {
+    background-color: #ffffff;
     padding: 10px;
 }
 

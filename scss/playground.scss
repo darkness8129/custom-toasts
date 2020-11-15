@@ -1,0 +1,80 @@
+body,
+p,
+fieldset,
+input,
+legend,
+select {
+    margin: 0;
+    padding: 0;
+}
+
+fieldset {
+    border: none;
+}
+
+button {
+    border: none;
+}
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 18px;
+    font-family: monospace, sans-serif;
+    color: #ffffff;
+    background-color: #000000;
+    font-weight: bold;
+}
+
+input[type='text'],
+input[type='number'],
+select {
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    font-family: monospace, sans-serif;
+    border-radius: 5px;
+}
+
+input,
+select {
+    padding: 7px;
+}
+
+legend,
+label {
+    display: inline-block;
+    padding: 8px 0;
+}
+
+.playground {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+}
+
+.closeOnClick-fieldset p {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.closeOnClick-fieldset p label {
+    padding: 0;
+}
+
+.playground-btn {
+    display: block;
+    margin: 10px auto;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    font-family: monospace, sans-serif;
+}
