@@ -9,6 +9,9 @@
   overflow: hidden;
   padding: 0 10px;
   z-index: 1000; }
+  @media (max-width: 720px) {
+    .toasts-container_top-left {
+      max-width: 50%; } }
 
 .toasts-container_top-right {
   position: fixed;
@@ -19,6 +22,9 @@
   overflow: hidden;
   padding: 0 10px;
   z-index: 1000; }
+  @media (max-width: 720px) {
+    .toasts-container_top-right {
+      max-width: 50%; } }
 
 .toasts-container_bottom-left {
   position: fixed;
@@ -29,6 +35,9 @@
   overflow: hidden;
   padding: 0 10px;
   z-index: 1000; }
+  @media (max-width: 720px) {
+    .toasts-container_bottom-left {
+      max-width: 50%; } }
 
 .toasts-container_bottom-right {
   position: fixed;
@@ -39,6 +48,9 @@
   overflow: hidden;
   padding: 0 10px;
   z-index: 1000; }
+  @media (max-width: 720px) {
+    .toasts-container_bottom-right {
+      max-width: 50%; } }
 
 .toast {
   font-family: 'Open Sans', sans-serif;
