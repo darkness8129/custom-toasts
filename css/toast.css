@@ -1,12 +1,48 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 @import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
+.toasts-container_top-left {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 300px;
+  overflow: hidden;
+  padding: 0 10px; }
+
+.toasts-container_top-right {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 300px;
+  overflow: hidden;
+  padding: 0 10px; }
+
+.toasts-container_bottom-left {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: 300px;
+  overflow: hidden;
+  padding: 0 10px; }
+
+.toasts-container_bottom-right {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 300px;
+  overflow: hidden;
+  padding: 0 10px; }
+
 .toast {
   font-family: 'Open Sans', sans-serif;
   width: 100%;
-  max-width: 300px;
   margin: 5px;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1); }
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 5px 5px; }
 
 .toast__header_success {
   background-color: green;
@@ -15,7 +51,8 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 10px; }
+  padding: 10px;
+  border-radius: 5px 5px 0 0; }
 
 .toast__header_warning {
   background-color: orange;
@@ -24,7 +61,8 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 10px; }
+  padding: 10px;
+  border-radius: 5px 5px 0 0; }
 
 .toast__header_error {
   background-color: red;
@@ -33,7 +71,8 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 10px; }
+  padding: 10px;
+  border-radius: 5px 5px 0 0; }
 
 .toast__header_info {
   background-color: blue;
@@ -42,7 +81,8 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 10px; }
+  padding: 10px;
+  border-radius: 5px 5px 0 0; }
 
 .toast__title-wrapper {
   display: flex;

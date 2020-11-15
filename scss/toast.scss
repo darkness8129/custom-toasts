@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import url('https://use.fontawesome.com/releases/v5.13.0/css/all.css');
-// MIXIN
+
+// MIXINS
 @mixin toast__header($bg-color) {
     background-color: $bg-color;
     color: white;
@@ -9,16 +10,43 @@
     align-items: center;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding: 10px;
+    border-radius: 5px 5px 0 0;
+}
+
+@mixin toasts-container($top: null, $right: null, $bottom: null, $left: null) {
+    position: fixed;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+    width: 100%;
+    max-width: 300px;
+    overflow: hidden;
+    padding: 0 10px;
+}
+
+// TOASTS CONTAINER
+.toasts-container_top-left {
+    @include toasts-container($top: 0, $left: 0);
+}
+.toasts-container_top-right {
+    @include toasts-container($top: 0, $right: 0);
+}
+.toasts-container_bottom-left {
+    @include toasts-container($bottom: 0, $left: 0);
+}
+.toasts-container_bottom-right {
+    @include toasts-container($bottom: 0, $right: 0);
 }
 
 // TOAST
 .toast {
     font-family: 'Open Sans', sans-serif;
     width: 100%;
-    max-width: 300px;
     margin: 5px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 5px 5px;
 }
 
 // TOAST HEDER

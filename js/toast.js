@@ -2,8 +2,7 @@ window.addEventListener('load', () => {
     this.Toast = {
         show(content, key, { variant = 'info',
             position = 'bottom-right',
-            rootElement = document.body,
-            autoHideDuration = 3000,
+            autoHideDuration = 300000,
             closeOnClick = true } = {}) {
 
             // check errors
@@ -13,14 +12,24 @@ window.addEventListener('load', () => {
             // toast icon
             const toastIcon = setToastIcon(variant);
 
+            // create toasts container
+            addToastsContainer(position);
+
             // creating toast
             toast = document.createElement('div');
             toast.id = key;
             toast.className = 'toast';
             toast.innerHTML = setAppearance(content, variant, toastIcon, closeOnClick);
 
+            const container = document.querySelectorAll('.toasts-container_' + position)[0];
+
             // adding toast to root node
-            rootElement.prepend(toast);
+            if (position === 'bottom-right' || position === 'bottom-left') {
+                container.prepend(toast);
+            }
+            else {
+                container.append(toast);
+            }
 
             // add close func to the close btn if we have this option
             if (closeOnClick) {
@@ -28,12 +37,14 @@ window.addEventListener('load', () => {
             }
 
             // del toast after autoHideDuration
-            this.timeoutId = setTimeout(() => {
-                this.close(key);
+            const timeoutId = setTimeout(() => {
+                this.close(key, timeoutId);
+                // clear after closing
+                clearTimeout(timeoutId);
             }, autoHideDuration);
 
         },
-        close(key) {
+        close(key, timeoutId) {
             const toast = document.getElementById(key);
 
             // if we do not delete toast with the help of close btn
@@ -41,8 +52,8 @@ window.addEventListener('load', () => {
                 toast.remove();
             }
 
-            // clear timeout after closing
-            clearTimeout(this.timeoutId);
+            // clear after closing
+            clearTimeout(timeoutId);
         }
     }
 
@@ -126,4 +137,16 @@ window.addEventListener('load', () => {
             throw new Error('Error! Set unique id for toast.')
         }
     }
+
+    const addToastsContainer = (position) => {
+        const container = document.querySelectorAll('.toasts-container_' + position)[0];
+        console.log(container);
+
+        if (!container) {
+            const toastsContainer = document.createElement('div');
+            toastsContainer.className = 'toasts-container_' + position;
+            document.body.append(toastsContainer);
+        }
+    }
 });
+
