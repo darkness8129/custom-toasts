@@ -2,34 +2,23 @@ window.addEventListener('load', () => {
     this.Toast = {
         show(content, key, { variant = 'info',
             position = 'bottom-right',
-            autoHideDuration = 300000,
+            autoHideDuration = 5000,
             closeOnClick = true } = {}) {
-
-            // check errors
+            // checking errors
             checkArguments(content, key);
             checkUniqueKey(key);
 
             // toast icon
             const toastIcon = setToastIcon(variant);
 
+            // generate markup
+            const markup = generateMarkup(content, variant, toastIcon, closeOnClick);
+
             // create toasts container
             addToastsContainer(position);
 
             // creating toast
-            toast = document.createElement('div');
-            toast.id = key;
-            toast.className = 'toast';
-            toast.innerHTML = setAppearance(content, variant, toastIcon, closeOnClick);
-
-            const container = document.querySelectorAll('.toasts-container_' + position)[0];
-
-            // adding toast to root node
-            if (position === 'bottom-right' || position === 'bottom-left') {
-                container.prepend(toast);
-            }
-            else {
-                container.append(toast);
-            }
+            addToastToPage(key, markup, position)
 
             // add close func to the close btn if we have this option
             if (closeOnClick) {
@@ -37,8 +26,9 @@ window.addEventListener('load', () => {
             }
 
             // del toast after autoHideDuration
-            const timeoutId = setTimeout(() => {
+            let timeoutId = setTimeout(() => {
                 this.close(key, timeoutId);
+
                 // clear after closing
                 clearTimeout(timeoutId);
             }, autoHideDuration);
@@ -79,7 +69,7 @@ window.addEventListener('load', () => {
         return toastIcon;
     }
 
-    const setAppearance = (content,
+    const generateMarkup = (content,
         variant,
         toastIcon, closeOnClick) => {
         let toast;
@@ -139,14 +129,40 @@ window.addEventListener('load', () => {
     }
 
     const addToastsContainer = (position) => {
-        const container = document.querySelectorAll('.toasts-container_' + position)[0];
-        console.log(container);
+        const container = document.querySelector('.toasts-container_' + position);
 
+        // if we do not have container with the same class
         if (!container) {
             const toastsContainer = document.createElement('div');
             toastsContainer.className = 'toasts-container_' + position;
             document.body.append(toastsContainer);
         }
     }
-});
 
+    const addToastToPage = (key, markup, position) => {
+        // container for adding post
+        const container = document.querySelector('.toasts-container_' + position);
+
+        // creating toast
+        toast = document.createElement('div');
+        toast.id = key;
+        toast.className = 'toast';
+        toast.innerHTML = markup;
+
+        // adding toast to root node
+        if (position === 'bottom-right' || position === 'bottom-left') {
+            container.append(toast);
+        }
+        else {
+            container.prepend(toast);
+        }
+
+        // animation after adding new toast
+        toast.animate([
+            { opacity: 0 },
+            { opacity: 1 }
+        ], {
+            duration: 1000
+        })
+    }
+});
